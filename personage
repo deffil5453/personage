@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Personage
+{
+    class Program
+    {
+        public class Person
+        {
+            private DateTime _birthday;
+
+            public string Name { get; set; }
+
+            public DateTime Birthday
+            {
+                get { return _birthday; }
+                set
+                {
+                    _birthday = value;
+                }
+            }
+
+            public int Age
+            {
+                get { return DateTime.Now.Year - Birthday.Year; }
+
+            }
+
+        }
+        static void Main(string[] args)
+        {
+            Person _person = new Person();
+            {
+                Console.Write("Введите Имя:");
+                _person.Name = Console.ReadLine();
+
+                Console.Write("Введите дату рождения (15.03.1990):");
+
+                string inputDate = Console.ReadLine();
+                _person.Birthday = Convert.ToDateTime(inputDate);
+
+                Console.WriteLine("Ваш возвраст: {0}", _person.Age);
+            }           
+
+        }
+    }
+}
